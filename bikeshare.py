@@ -10,6 +10,7 @@ CITY_DATA = { 'chicago': 'chicago.csv',
 ACEPTABLE_MONTH_OPTIONS = "january february march april may june all"
 ACEPTABLE_DAY_OPTIONS = "monday, tuesday, wednesday, thursday, friday, saturday, sunday, all"
 
+#Definition of functions to interact with program's users
 def get_filters():
     """
     Asks user to specify a city, month, and day to analyze.
@@ -176,6 +177,7 @@ def user_stats(df):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
+#Begining of main code
 
 def main():
     while True:
