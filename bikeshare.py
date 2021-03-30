@@ -1,3 +1,4 @@
+#Python LIBRARIES
 import time
 import pandas as pd
 import numpy as np
@@ -17,10 +18,10 @@ def get_filters():
         (str) month - name of the month to filter by, or "all" to apply no month filter
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
-   
+
     print('Hello! Let\'s explore some US bikeshare data!')
     # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
-   
+
     while True:
         city = input("Enter the name of the city to analyze: ").lower()
         if CITY_DATA.get(city) is not None:
@@ -28,7 +29,7 @@ def get_filters():
         print ("¡¡ERROR!! Not a valid input, try: chicago, new york city or washington")
 
     # TO DO: get user input for month (all, january, february, ... , june)
-        
+
     while True:
         month = input('name of the month to filter by, or "all" to apply no month filter: ').lower()
         if ACEPTABLE_MONTH_OPTIONS.find(month) >=0:
@@ -36,7 +37,7 @@ def get_filters():
         print ('¡¡ERROR!! Not a valid input, try: january, february, march, april, may, june or "all" to apply no month filter')
 
     # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
-    
+
     while True:
         day = input('name of the day of week to filter by, or "all" to apply no day filter: ').lower()
 
@@ -96,14 +97,14 @@ def time_stats(df):
     print("Most popular month: {}".format(popular_month.title()))
 
     # TO DO: display the most common day of week
-    popular_day_of_week = df['day_of_week'].mode()[0]    
+    popular_day_of_week = df['day_of_week'].mode()[0]
     print("Most popular day of the week: {}".format(popular_day_of_week))
-    
+
     # TO DO: display the most common start hour
     df['hour'] = df['Start Time'].dt.hour
     popular_hour = df['hour'].mode()[0]
     print("Most popular hour: {}".format(popular_hour))
-    
+
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
@@ -182,14 +183,14 @@ def main():
         row = 0
         while True:
             viewData = input("Would you like to see the raw data? Type 'Yes' or 'No'.")
-            if viewData.title() == "Yes": 
+            if viewData.title() == "Yes":
                 print(df.iloc[row:row+5])
                 row += 5
             elif viewData.title() =="No":
-                break           
+                break
             else:
                 print("¡¡ERROR!! Invalid input, try; 'Yes' or 'No'")
-                
+
         time_stats(df)
         station_stats(df)
         trip_duration_stats(df)
@@ -199,7 +200,6 @@ def main():
         if restart.lower() != 'yes':
             break
 
-  
+
 if __name__ == "__main__":
 	main()
-    
